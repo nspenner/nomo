@@ -1,29 +1,19 @@
 <template>
   <form class="parameterform-container">
-    <div class="time-signature-container">
-      <div class="time-signature-form">
-        <input
-          v-model="barCount"
-          v-on:change="handleBarCountChange"
-          class="bar-count"
-          type="text"
-          inputmode="numeric"
-          size="1"
-          maxlength="2"
-          pattern="[0-9]*"
-        />
-        <span></span>
-        <input
-          v-model="beatCount"
-          v-on:change="handleBeatCountChange"
-          class="beat-count"
-          type="text"
-          inputmode="numeric"
-          size="1"
-          maxlength="2"
-          pattern="[0-9]*"
-        />
-      </div>
+    <div class="bpm-form">
+      <label for="barCount">Beats</label>
+      <input
+        v-model="barCount"
+        v-on:change="handleBarCountChange"
+        class="bar-count"
+        type="text"
+        inputmode="numeric"
+        size="1"
+        maxlength="2"
+        pattern="[0-9]*"
+        name="barCount"
+        id="barCount"
+      />
     </div>
     <div class="bpm-form">
       <label for="bpm">BPM</label>
@@ -68,7 +58,8 @@ export default {
   display: flex;
   justify-content: space-between;
   height: 140px;
-  width: 250px;
+  max-width: 300px;
+  align-items: center;
 }
 
 .time-signature-container {
@@ -105,10 +96,11 @@ export default {
 }
 
 .bpm-form {
+  margin: 2rem;
+  box-sizing: border-box;
   display: flex;
-  width: 50%;
   flex: 1;
-  align-items: center;
+  flex-direction: column;
 }
 
 .bpm-form > label {
@@ -118,11 +110,11 @@ export default {
   font-size: 24px;
   line-height: 54.3%;
   letter-spacing: -0.04em;
-  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .bpm-form > input {
-  min-width: 0;
+  width: 100%;
   background: #fdfaf2;
   border: 1px solid rgba(56, 39, 5, 0.54);
   box-sizing: border-box;
