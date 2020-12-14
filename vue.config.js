@@ -1,5 +1,13 @@
 module.exports = {
   configureWebpack: {
-    devtool: 'source-map'
-  }
-}
+    devtool: "source-map",
+    module: {
+      rules: [
+        {
+          test: /\.worker\.js$/,
+          use: { loader: "worker-loader" },
+        },
+      ],
+    },
+  },
+};

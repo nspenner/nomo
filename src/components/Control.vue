@@ -45,7 +45,8 @@ button {
 .button {
   height: 192px;
   width: 192px;
-  color: #382705;
+  color: var(--text-color-primary);
+  fill: var(--text-color-primary);
   cursor: pointer;
 }
 </style>

@@ -62,39 +62,6 @@ export default {
   align-items: center;
 }
 
-.time-signature-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  flex: 1;
-  align-items: flex-start;
-}
-
-.time-signature-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  flex: 1;
-}
-
-.time-signature-form input {
-  background: #fdfaf2;
-  border: 1px solid rgba(56, 39, 5, 0.54);
-  box-sizing: border-box;
-  border-radius: 5px;
-  width: 56px;
-  padding: 8px;
-  font-family: Work Sans;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 36px;
-  line-height: 54.3%;
-  text-align: center;
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-}
-
 .bpm-form {
   margin: 2rem;
   box-sizing: border-box;
@@ -111,12 +78,14 @@ export default {
   line-height: 54.3%;
   letter-spacing: -0.04em;
   margin-bottom: 1rem;
+  color: var(--text-color-primary);
 }
 
 .bpm-form > input {
   width: 100%;
-  background: #fdfaf2;
-  border: 1px solid rgba(56, 39, 5, 0.54);
+  background: var(--input-background-color);
+  color: var(--text-color-primary);
+  border: 1px solid var(--form-border-color);
   box-sizing: border-box;
   border-radius: 5px;
   padding: 0.5rem;
@@ -127,11 +96,5 @@ export default {
   line-height: 54.3%;
   letter-spacing: 0.1em;
   text-align: center;
-}
-
-span {
-  display: block;
-  width: 30%;
-  border: 0.5px solid black;
 }
 </style>
