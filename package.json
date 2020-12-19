@@ -9,9 +9,12 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "micromodal": "^0.4.6",
     "normalize.css": "^8.0.1",
+    "via": "^0.0.1",
     "vue": "^3.0.0",
-    "worker-loader": "^3.0.6"
+    "worker-loader": "^3.0.6",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

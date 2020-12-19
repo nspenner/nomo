@@ -9,7 +9,33 @@
       v-on:beat-count-change="beatCount = $event"
     />
   </main>
-  <footer><span>About</span></footer>
+  <footer><a data-micromodal-trigger="modal-1">About</a></footer>
+  <div class="modal" id="modal-1" aria-hidden="true">
+    <div class="modal-overlay" tabindex="-1" data-micromodal-close>
+      <div
+        class="dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-1-title"
+      >
+        <header class="modal-header">
+          <h2 id="modal-1-title">
+            About
+          </h2>
+          <button
+            aria-label="Close modal"
+            data-micromodal-close
+            class="modal-close"
+          ></button>
+        </header>
+        <div id="modal-1-content">
+          <p>Nomo is a no-nonsense metronome.</p>
+          <p>No ads. No popups (other than this one).</p>
+          <p>Created by <a href="https://nminchow.com">Nathan Minchow.</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 /*
@@ -42,6 +68,7 @@ import Control from "./Control";
 import lowClick from "../assets/low_click.wav";
 import highClick from "../assets/high_click.wav";
 import Worker from "worker-loader!../assets/worker.js";
+import MicroModal from "micromodal";
 
 export default {
   name: "Metronome",
@@ -81,7 +108,6 @@ export default {
     };
   },
   created: function() {
-    console.log("hi");
     let scheduler = this.scheduler;
     this.timerWorker.onmessage = function(e) {
       if (e.data == "tick") {
@@ -91,6 +117,9 @@ export default {
       }
     };
     this.timerWorker.postMessage({ interval: this.lookahead });
+  },
+  mounted: function() {
+    MicroModal.init();
   },
   methods: {
     maxBeats: function() {
@@ -206,7 +235,7 @@ footer {
   margin: 16px;
 }
 
-footer > span {
+footer > a {
   font-family: Work Sans;
   font-style: normal;
   font-weight: 300;
@@ -216,5 +245,50 @@ footer > span {
   text-decoration-line: underline;
   margin: 16px;
   color: var(--text-color-primary);
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.31);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-header {
+  display: flex;
+}
+
+.modal-close {
+  background: transparent;
+  border: 0;
+  margin-left: auto;
+  height: 24px;
+  width: 24px;
+}
+
+.modal-close:before {
+  content: "\2715";
+}
+
+.dialog {
+  background-color: var(--background-color);
+  max-width: 400px;
+  padding: 1rem;
+  margin: 2rem;
+  box-sizing: border-box;
 }
 </style>
