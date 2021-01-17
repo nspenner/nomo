@@ -224,6 +224,7 @@ main {
 }
 
 .beat-indicator {
+  display: none;
   height: 72px;
 }
 
