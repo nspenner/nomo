@@ -1,24 +1,5 @@
-# metronome
+# Nomo
 
-## Project setup
-```
-yarn install
-```
+Nomo is a no-nonsense metronome.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+It uses the web audio api to handle dynamic beat changes and ensure accurate timing. Read (this post by Chris Wilson)[https://www.html5rocks.com/en/tutorials/audio/scheduling/] for more information on the implementation.
