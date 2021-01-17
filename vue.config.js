@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: "/nomo/",
   configureWebpack: {
     devtool: "source-map",
     module: {
