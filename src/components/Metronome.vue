@@ -77,6 +77,10 @@ export default {
     Control,
   },
   data() {
+    var constructor = window.AudioContext;
+    if (!constructor) {
+      alert('Nomo is not supported in this browser (requires a newer version of the Web Audio API).');
+    }
     return {
       playing: false,
       lowClick: new Audio(lowClick),
@@ -85,7 +89,7 @@ export default {
       beatCount: 4,
       barCount: 4,
       counter: 0,
-      audioContext: new AudioContext(),
+      audioContext: new constructor(),
       isPlaying: false, // Are we currently playing?
       startTime: null, // The start time of the entire sequence.
       currentTwelveletNote: null, // What note is currently last scheduled?
