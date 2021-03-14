@@ -11,4 +11,11 @@ module.exports = {
       ],
     },
   },
+  pwa: {
+    name: "nomo",
+    themeColor: "#f9f5eb",
+    msTileColor: "#000000",
+    appleMobileWebAppCapable: "yes",
+    appleMobileWebAppStatusBarStyle: "#f9f5eb",
+  },
 };
