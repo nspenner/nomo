@@ -9,12 +9,14 @@
     "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
+    "animejs": "^3.2.1",
     "core-js": "^3.6.5",
     "execa": "^5.0.0",
     "micromodal": "^0.4.6",
     "normalize.css": "^8.0.1",
     "via": "^0.0.1",
     "vue": "^3.0.0",
+    "vue-slider-component": "^4.0.0-beta.3",
     "worker-loader": "^3.0.6",
     "yarn": "^1.22.10"
   },
