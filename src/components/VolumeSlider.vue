@@ -27,4 +27,18 @@ export default {
   border-color: var(--text-color-primary);
   color: var(--background-color);
 }
+
+.vue-slider-dot-handle {
+  box-shadow: none;
+  background-color: var(--background-color);
+  border: 1px solid var(--form-border-color);
+}
+
+.vue-slider-dot-handle-focus {
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.vue-slider-rail {
+  background-color: rgba(56, 39, 5, 0.17);
+}
 </style>
