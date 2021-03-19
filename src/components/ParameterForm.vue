@@ -1,42 +1,51 @@
 <template>
   <form class="parameterform-container">
-    <div class="bpm-form">
-      <label for="barCount">Beats</label>
-      <input
-        v-model="barCount"
-        v-on:change="handleBarCountChange"
-        class="bar-count"
-        type="text"
-        inputmode="numeric"
-        size="1"
-        maxlength="2"
-        pattern="[0-9]*"
-        name="barCount"
-        id="barCount"
-      />
+    <div class="row">
+      <div class="bpm-form">
+        <label for="barCount">Beats</label>
+        <input
+          v-model="barCount"
+          v-on:change="handleBarCountChange"
+          class="bar-count"
+          type="text"
+          inputmode="numeric"
+          size="1"
+          maxlength="2"
+          pattern="[0-9]*"
+          name="barCount"
+          id="barCount"
+        />
+      </div>
+      <div class="bpm-form">
+        <label for="bpm">BPM</label>
+        <input
+          type="text"
+          inputmode="numeric"
+          name="bpm"
+          id="bpm"
+          v-model="bpm"
+          v-on:change="handleBpmChange"
+        />
+      </div>
     </div>
-    <div class="bpm-form">
-      <label for="bpm">BPM</label>
-      <input
-        type="text"
-        inputmode="numeric"
-        name="bpm"
-        id="bpm"
-        v-model="bpm"
-        v-on:change="handleBpmChange"
-      />
-    </div>
+    <div class="row"><volume-slider aria-label="Volume Slider" v-on:change="handleVolumeChange"/></div>
   </form>
 </template>
 
 <script>
+import VolumeSlider from "./VolumeSlider.vue";
+
 export default {
+  components: {
+    VolumeSlider,
+  },
   data() {
     return {
       barCount: "4",
       beatCount: "4",
       bpm: "120",
       maxLength: "2",
+      volume: .5
     };
   },
   methods: {
@@ -49,16 +58,30 @@ export default {
     handleBarCountChange: function() {
       this.$emit("bar-count-change", this.barCount);
     },
+    handleVolumeChange: function(volume) {
+      this.$emit("volume-change", volume * 0.01)
+    }
   },
 };
 </script>
 
 <style scoped>
 .parameterform-container {
+  height: 240px;
+  max-width: 300px;
+}
+
+.parameterform-container > .row {
+  margin-top: 32px;
+}
+
+.parameterform-container > .row:first-child {
+  margin-top: 0;
+}
+
+.row {
   display: flex;
   justify-content: space-between;
-  height: 140px;
-  max-width: 300px;
   align-items: center;
 }
 

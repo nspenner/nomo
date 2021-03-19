@@ -7,6 +7,7 @@
       v-on:bpm-change="bpm = $event"
       v-on:bar-count-change="barCount = $event"
       v-on:beat-count-change="beatCount = $event"
+      v-on:volume-change="masterVolume = $event"
     />
   </main>
   <footer><a data-micromodal-trigger="modal-1">About</a></footer>
